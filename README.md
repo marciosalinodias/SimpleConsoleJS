@@ -10,7 +10,7 @@ This project uses [Pretty Print](http://google-code-prettify.googlecode.com/svn/
 ```html
 <script type="text/javascript" src="simpleConsole.js"></script>
 ```
-This file will include:
+**This file will include:**
 * [simpleConsole.css](https://github.com/marciosalinodias/SimpleConsoleJS/blob/master/simpleConsole.css)
 * [prettify.js](https://github.com/marciosalinodias/SimpleConsoleJS/blob/master/prettify.js)
 * [prettify.css](https://github.com/marciosalinodias/SimpleConsoleJS/blob/master/prettify.css)
@@ -30,5 +30,5 @@ This file will include:
 
 Use the sample, raise a Github issue, or fork the project and make suggestions.
 
-**Download, share, promote this code. After all, the simpler the better**
+**Download, share, promote =). After all, simple is better.**
 
