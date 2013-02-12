@@ -11,11 +11,11 @@ This project uses [Pretty Print](http://google-code-prettify.googlecode.com/svn/
 <script type="text/javascript" src="simpleConsole.js"></script>
 ```
 This file will include:
-* simpleConsole.css
-* prettify.js
-* prettify.css
+* [simpleConsole.css](https://github.com/marciosalinodias/SimpleConsoleJS/blob/master/simpleConsole.css)
+* [prettify.js](https://github.com/marciosalinodias/SimpleConsoleJS/blob/master/prettify.js)
+* [prettify.css](https://github.com/marciosalinodias/SimpleConsoleJS/blob/master/prettify.css)
 
-Just call the plugin in a "div" element:
+**After that, just call the plugin in a container element**
 ```html
 <div id="console" style="width: 800px; height: 500px;"></div>
 
@@ -26,7 +26,9 @@ Just call the plugin in a "div" element:
 
 ## Feedback
 
-**Please provide your feedback!** 
-Use the sample, Raise a Github issue, or fork the project and make suggestions.
+**Please provide your feedback!**
+
+Use the sample, raise a Github issue, or fork the project and make suggestions.
+
 **Download, share, promote this code. After all, the simpler the better**
 
