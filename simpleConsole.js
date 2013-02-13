@@ -22,6 +22,12 @@
  * This plugin is just a simple javascript console to incorporate into your web page.
  * @memberOf jQuery.fn
  */
+var SIMPLE_CONSOLE_PATH = (function thisFilePath() {
+		var scripts = document.getElementsByTagName("script");
+		var lastPath = scripts[scripts.length - 1].src;
+		var splitPath = lastPath.split("/");
+		return lastPath.replace(splitPath[splitPath.length - 1], "");
+	})();
 (function( $ ) {
 	
 	$.fn.SimpleConsole = function() {
@@ -30,17 +36,17 @@
 		
 		var scCss = document.createElement("link");
 		scCss.rel = "stylesheet";
-		scCss.href = "simpleConsole.css"; 
+		scCss.href = SIMPLE_CONSOLE_PATH + "simpleConsole.css"; 
 		$(document.head).append(scCss);
 		
 		// Dependency of prettify plugin
 		var prettifyCss = document.createElement("link");
 		prettifyCss.rel = "stylesheet";
-		prettifyCss.href = "prettify.css";
+		prettifyCss.href = SIMPLE_CONSOLE_PATH + "prettify.css";
 		$(document.head).append(prettifyCss);
 		var prettifyScript = document.createElement("script");
 		prettifyScript.setAttribute("type", "text/javascript");
-		prettifyScript.setAttribute("src", "prettify.js");
+		prettifyScript.setAttribute("src", SIMPLE_CONSOLE_PATH + "prettify.js");
 		document.head.appendChild(prettifyScript);
 		// Dependency of prettify plugin
 		
