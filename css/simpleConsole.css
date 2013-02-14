@@ -1,0 +1,62 @@
+#console{
+	width: 800px; 
+	height: 500px;
+}
+
+h2.simple-console{
+	margin-left: 20px;
+	font-family: Verdana;
+	color: #abc;
+}
+
+#sc-cmdIn{
+	width: 100%;
+	margin: 10px 20px 0px 20px;
+	border: 1px solid #dddddd;
+	padding-left: 5px;
+	padding-right: 5px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+}
+
+#sc-cmdOut{
+	width: 100%;
+	margin: -1px 20px 0px 20px;
+	padding: 10px 5px;
+	border: 1px solid #dddddd;
+	height: 200px;
+	overflow: auto;
+	background-color: #FFFFFF;
+}
+
+#sc-cmdOut .sc-propertyTree{
+	cursor: pointer;
+	padding-left: 13px;
+}
+
+#sc-cmdOut .sc-expandTree{
+	background: url("../img/right.png") left no-repeat;
+}
+
+#sc-cmdOut .sc-retractTree{
+	background: url("../img/down.png") left no-repeat;
+}
+
+#sc-cmdOut ul{
+	list-style: none;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 30px !important;
+}
+
+#sc-cmdOut ul.detailTree{
+	display:none;
+}
+
+#sc-cmdOut hr{
+	width: 100%;
+	height: -1px;
+	margin: 10px 0;
+	border: 1px solid #eeeeee;
+}
