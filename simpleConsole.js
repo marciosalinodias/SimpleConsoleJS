@@ -123,6 +123,11 @@ var SIMPLE_CONSOLE_PATH = (function thisFilePath() {
 				scOutElement.append("&lt;&lt; " + e);
 			};
 			
+			//autoscroll
+			scOutElement.prop({
+				scrollTop: scOutElement.prop('scrollHeight')
+			});
+			
 			prettyPrint();
 		};
 		
