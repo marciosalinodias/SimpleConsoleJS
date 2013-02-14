@@ -16,6 +16,7 @@
 	border: 1px solid #dddddd;
 	height: 200px;
 	overflow: auto;
+	background-color: #FFFFFF;
 }
 
 #sc-cmdOut .sc-propertyTree{
@@ -35,6 +36,7 @@
 	list-style: none;
 	margin-top: 5px;
 	margin-bottom: 5px;
+	margin-left: 30px !important;
 }
 
 #sc-cmdOut ul.detailTree{

@@ -114,7 +114,7 @@ var SIMPLE_CONSOLE_PATH = (function thisFilePath() {
 			
 			try{
 				result = window.eval( command );
-				if (typeof result == "object") {
+				if (typeof result !== 'undefined') {
 					result = generateObject(result);
 				};
 				scOutElement.append("&lt;&lt; " + result);
@@ -129,7 +129,7 @@ var SIMPLE_CONSOLE_PATH = (function thisFilePath() {
 		function generateObject(dataTree){
 			if (dataTree != null) {
 				var returnTree = "";
-
+				alert(typeof dataTree);
 				if (getClassName(dataTree) === "Array") {
 					var identifier = randomizeIdentifier();
 					returnTree += "<span class=\"sc-propertyTree sc-expandTree\" rel=\"" + identifier + "\" >" + getClassName(dataTree) + " [" + dataTree.length + "]</span><ul class=\"detailTree\" id=\"" + identifier + "\">";
@@ -142,14 +142,18 @@ var SIMPLE_CONSOLE_PATH = (function thisFilePath() {
 					returnTree += "<span class=\"sc-propertyTree sc-expandTree\" rel=\"" + identifier + "\" >" + getClassName(dataTree) + "</span><ul class=\"detailTree\" id=\"" + identifier + "\">";
 					for (var key in dataTree) {
 						returnTree += "<li>" + key + " : ";
-						if(typeof dataTree[key] == "object"){
+						if ( typeof dataTree[key] == "object" || typeof dataTree[key] == "function") {
 							returnTree += generateObject(dataTree[key]);
-						}else{
+						} else {
 							returnTree += typeof dataTree[key] == "string" ? "&quot;" + dataTree[key] + "&quot;" : dataTree[key];
-						}
+						};
 						returnTree += "</li>";
 					};
 					returnTree += "</ul>";
+				} else if (typeof dataTree == "function"){
+					var identifier = randomizeIdentifier();
+					returnTree += "<span class=\"sc-propertyTree sc-expandTree\" rel=\"" + identifier + "\" >" + getClassName(dataTree) + "() {...</span>";
+					returnTree += "<ul class=\"detailTree\" id=\"" + identifier + "\"><li>" + dataTree + "</li></ul>";
 				} else {
 					returnTree = typeof dataTree == "string" ? "&quot;" + dataTree + "&quot;" : dataTree;
 				};
@@ -177,7 +181,7 @@ var SIMPLE_CONSOLE_PATH = (function thisFilePath() {
 				executeCode(scInElement.val());
 				insertActualElement();
 				moveToNewElement();
-			}else if (event.keyCode == '38') { // up arrow
+			} else if (event.keyCode == '38') { // up arrow
 				if(typeof arrActual != 'undefined' ){
 					backOneElement();
 				}else if(scInElement.val() != ""){
