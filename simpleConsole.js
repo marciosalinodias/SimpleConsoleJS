@@ -30,7 +30,13 @@ var SIMPLE_CONSOLE_PATH = (function thisFilePath() {
 	})();
 (function( $ ) {
 	
-	$.fn.SimpleConsole = function() {
+	$.fn.SimpleConsole = function(settings) {
+		
+		var defaults = {
+			showBadge: true
+		};
+		
+		if(settings){$.extend(defaults,settings)}
 		
 		this.html("");
 		
@@ -62,6 +68,15 @@ var SIMPLE_CONSOLE_PATH = (function thisFilePath() {
 		this.append("<br />");
 		this.append(scOutElement);
 		
+		if (defaults.showBadge) {
+			var scGihubBadge = document.createElement("div");
+			scGihubBadge.id = "sc-gihubBadge";
+			this.append(scGihubBadge);
+			scGihubBadge = $(scGihubBadge);
+			scGihubBadge.append('<a target="_blank" href="https://github.com/marciosalinodias/SimpleConsoleJS">SimpleConsoleJS</a>');
+			scGihubBadge.append('<a class="badge" target="_blank" href="https://github.com/marciosalinodias/SimpleConsoleJS">&nbsp;</a>');
+		};
+		
 		scInElement = $(scInElement);
 		scOutElement = $(scOutElement);
 		
@@ -70,7 +85,7 @@ var SIMPLE_CONSOLE_PATH = (function thisFilePath() {
 		   var nameReplaceRegex = /function (.{1,})\(/;
 		   var className = (nameReplaceRegex).exec(element.constructor.toString());
 		   return (className && className.length > 1) ? className[1] : "";
-		};		
+		};
 		
 		function randomizeIdentifier(){
 			return Date.now().toString() + parseInt(Math.random() * 1000000).toString();

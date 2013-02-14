@@ -24,6 +24,13 @@ This project uses [Pretty Print](http://google-code-prettify.googlecode.com/svn/
 </script>
 ```
 
+**You also can disable the link bar to github by using parameter "options"**
+```html
+<script type="text/javascript">
+	$("#console").SimpleConsole({showBadge:false});
+</script>
+```
+
 ## Feedback
 
 **Please provide your feedback!**

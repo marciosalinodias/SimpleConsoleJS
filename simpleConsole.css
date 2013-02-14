@@ -20,6 +20,34 @@
 	background-color: #FFFFFF;
 }
 
+#sc-gihubBadge{
+	width: 100%;
+	margin: -1px 20px 0px 20px;
+	padding: 5px 10px;
+	border: 1px solid #dddddd;
+	height: 18px;
+	overflow: auto;
+	background-color: #efefef;
+	color: #707070;
+	font-size: 14px;
+}
+
+#sc-gihubBadge a{
+	text-decoration: none;
+	color: #7F7F7F;
+}
+
+#sc-gihubBadge a.badge{
+	height: 18px;
+	width: 18px;
+	float: right;
+	background: url("_imgs/github.png") no-repeat;
+}
+
+#sc-gihubBadge a:hover{
+	color: #555555;
+}
+
 #sc-cmdOut .sc-propertyTree{
 	cursor: pointer;
 	padding-left: 13px;
