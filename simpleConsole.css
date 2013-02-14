@@ -3,7 +3,7 @@
 	margin: 10px 20px 0px 20px;
 	border: 1px solid #dddddd;
 	padding-left: 14px;
-	padding-right: 5px;
+	padding-right: 6px;
 	height: 20px;
 	line-height: 20px;
 	font-size: 14px;
@@ -13,7 +13,7 @@
 #sc-cmdOut{
 	width: 100%;
 	margin: -1px 20px 0px 20px;
-	padding: 10px 5px;
+	padding: 10px 10px;
 	border: 1px solid #dddddd;
 	height: 200px;
 	overflow: auto;
