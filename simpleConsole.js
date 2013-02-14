@@ -129,7 +129,7 @@ var SIMPLE_CONSOLE_PATH = (function thisFilePath() {
 		function generateObject(dataTree){
 			if (dataTree != null) {
 				var returnTree = "";
-				alert(typeof dataTree);
+				
 				if (getClassName(dataTree) === "Array") {
 					var identifier = randomizeIdentifier();
 					returnTree += "<span class=\"sc-propertyTree sc-expandTree\" rel=\"" + identifier + "\" >" + getClassName(dataTree) + " [" + dataTree.length + "]</span><ul class=\"detailTree\" id=\"" + identifier + "\">";
