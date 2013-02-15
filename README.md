@@ -32,6 +32,8 @@ Another way to call the plugin, is via the SIMPLE_CONSOLE_JS namespace by the Ac
 ```
 This function will include the console div in the body's end.
 
+## Options
+
 **You also can setup `options` in the plugin**
 ```html
 <script type="text/javascript">
@@ -44,7 +46,7 @@ This function will include the console div in the body's end.
 </script>
 ```
 
-The `options` are:
+**The options are:**
 * `options` Object
   * `showBadge` Boolean. Show/Hide the link bar to github.
   * `cssPath` String. Path to intern css files of the plugin. The cssPath is relative path to simpleConsole.js file.
