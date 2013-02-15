@@ -10,7 +10,7 @@ This project uses [Pretty Print](http://google-code-prettify.googlecode.com/svn/
 ```html
 <script type="text/javascript" src="jquery-simpleConsoleJS/simpleConsole.js"></script>
 ```
-**This file will include:**
+This file will include:
 * [simpleConsole.css](https://github.com/marciosalinodias/SimpleConsoleJS/blob/master/jquery-simpleConsoleJS/_css/simpleConsole.css)
 * [prettify.js](https://github.com/marciosalinodias/SimpleConsoleJS/blob/master/jquery-simpleConsoleJS/_js/prettify.js)
 * [prettify.css](https://github.com/marciosalinodias/SimpleConsoleJS/blob/master/jquery-simpleConsoleJS/_css/prettify.css)
@@ -24,20 +24,31 @@ This project uses [Pretty Print](http://google-code-prettify.googlecode.com/svn/
 </script>
 ```
 
-Another way to call the plugin, is via the SIMPLE_CONSOLE_JS namespace by the Activate function
+Another way to call the plugin, is via the SIMPLE_CONSOLE_JS namespace by the Activate function:
 ```html
 <script type="text/javascript">
 	SIMPLE_CONSOLE_JS.ACTIVATE();
 </script>
 ```
-This function will include the console div in the body's end
+This function will include the console div in the body's end.
 
-**You also can disable the link bar to github by using parameter "options"**
+**You also can setup `options` in the plugin**
 ```html
 <script type="text/javascript">
-	$("#console").SimpleConsole({showBadge:false});
+	$("#console").SimpleConsole({cssPath:"../my-css-path/"});
 </script>
 ```
+```html
+<script type="text/javascript">
+	SIMPLE_CONSOLE_JS.ACTIVATE({jsPath:"../my-js-path/"});
+</script>
+```
+
+The `options` are:
+* `options` Object
+  * `showBadge` Boolean. Show/Hide the link bar to github.
+  * `cssPath` String. Path to intern css files of the plugin. The cssPath is relative path to simpleConsole.js file.
+  * `jsPath` String. Path to intern js files of the plugin. The jsPath is relative path to simpleConsole.js file.
 
 ## Feedback
 
