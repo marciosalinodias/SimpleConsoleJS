@@ -32,7 +32,7 @@ SIMPLE_CONSOLE_JS.SIMPLE_CONSOLE_PATH = (function thisFilePath() {
 		return lastPath.replace(splitPath[splitPath.length - 1], "");
 	})();
 
-SIMPLE_CONSOLE_JS.ACTIVATE = function(){
+SIMPLE_CONSOLE_JS.ACTIVATE = function(settings){
 	SIMPLE_CONSOLE_JS.consoleObj = $('#sc-console');
 	
 	if(!SIMPLE_CONSOLE_JS.consoleObj || SIMPLE_CONSOLE_JS.consoleObj.length <= 0){
@@ -43,7 +43,9 @@ SIMPLE_CONSOLE_JS.ACTIVATE = function(){
 		SIMPLE_CONSOLE_JS.consoleObj = $(SIMPLE_CONSOLE_JS.consoleObj);
 	};
 	
-	SIMPLE_CONSOLE_JS.consoleObj.SimpleConsole();
+	if(!settings){var settings = {}};
+	
+	SIMPLE_CONSOLE_JS.consoleObj.SimpleConsole(settings);
 };
 
 SIMPLE_CONSOLE_JS.DEACTIVATE = function(){
