@@ -8,12 +8,12 @@ This project uses [Pretty Print](http://google-code-prettify.googlecode.com/svn/
 
 **You need includes the javascript**
 ```html
-<script type="text/javascript" src="simpleConsole.js"></script>
+<script type="text/javascript" src="jquery-simpleConsoleJS/simpleConsole.js"></script>
 ```
 **This file will include:**
-* [simpleConsole.css](https://github.com/marciosalinodias/SimpleConsoleJS/blob/master/simpleConsole.css)
-* [prettify.js](https://github.com/marciosalinodias/SimpleConsoleJS/blob/master/prettify.js)
-* [prettify.css](https://github.com/marciosalinodias/SimpleConsoleJS/blob/master/prettify.css)
+* [simpleConsole.css](https://github.com/marciosalinodias/SimpleConsoleJS/blob/master/jquery-simpleConsoleJS/_css/simpleConsole.css)
+* [prettify.js](https://github.com/marciosalinodias/SimpleConsoleJS/blob/master/jquery-simpleConsoleJS/_js/prettify.js)
+* [prettify.css](https://github.com/marciosalinodias/SimpleConsoleJS/blob/master/jquery-simpleConsoleJS/_css/prettify.css)
 
 **After that, just call the plugin in a container element**
 ```html
@@ -23,6 +23,14 @@ This project uses [Pretty Print](http://google-code-prettify.googlecode.com/svn/
 	$("#console").SimpleConsole();
 </script>
 ```
+
+Another way to call the plugin, is via the SIMPLE_CONSOLE_JS namespace by the Activate function
+```html
+<script type="text/javascript">
+	SIMPLE_CONSOLE_JS.ACTIVATE();
+</script>
+```
+This function will include the console div in the body's end
 
 **You also can disable the link bar to github by using parameter "options"**
 ```html
