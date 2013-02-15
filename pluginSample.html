@@ -5,12 +5,15 @@
 		<title>SimpleConsoleJS</title>
 	</head>
 	<body>
-		<h2 class="simple-console">SimpleConsoleJS - Sample Page</h2>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<h2 class="simple-console">SimpleConsoleJS - Plugin Sample Page</h2>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
-		<script type="text/javascript" src="js/simpleConsole.js"></script>
+		<script type="text/javascript" src="jquery-simpleConsoleJS/simpleConsole.js"></script>
+		
+		<div id="pluginSample" style="width: 800px; height: 500px;"></div>
+		
 	</body>
 	<script type="text/javascript">
-		SIMPLE_CONSOLE_JS.ACTIVATE();
+		$("#pluginSample").SimpleConsole();
 	</script>	
 </html>

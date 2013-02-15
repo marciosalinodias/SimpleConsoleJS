@@ -21,76 +21,96 @@
  * See the Github SimpleConsoleJS project (https://github.com/marciosalinodias/SimpleConsoleJS) for full details.
  * This plugin is just a simple javascript console to incorporate into your web page.
  * @memberOf jQuery.fn
- */ 
+ */
 if(!SIMPLE_CONSOLE_JS)
 	var SIMPLE_CONSOLE_JS={};
-	
-SIMPLE_CONSOLE_JS.consoleObj = $('#console');
 
-var SIMPLE_CONSOLE_PATH = (function thisFilePath() {
+SIMPLE_CONSOLE_JS.SIMPLE_CONSOLE_PATH = (function thisFilePath() {
 		var scripts = document.getElementsByTagName("script");
 		var lastPath = scripts[scripts.length - 1].src;
 		var splitPath = lastPath.split("/");
 		return lastPath.replace(splitPath[splitPath.length - 1], "");
 	})();
 
-SIMPLE_CONSOLE_JS.DEACTIVATE = function(){
-	SIMPLE_CONSOLE_JS.consoleObj.html("");
-};
-	
 SIMPLE_CONSOLE_JS.ACTIVATE = function(){
-
-	var body = $('body');
-
+	SIMPLE_CONSOLE_JS.consoleObj = $('#sc-console');
+	
 	if(!SIMPLE_CONSOLE_JS.consoleObj || SIMPLE_CONSOLE_JS.consoleObj.length <= 0){
-		var consoleHtml = "<div id='console'></div>";
-		body.append(consoleHtml);
-		SIMPLE_CONSOLE_JS.consoleObj = $('#console');
-	}
+		SIMPLE_CONSOLE_JS.consoleObj = document.createElement("div");
+		SIMPLE_CONSOLE_JS.consoleObj.id = "sc-console";
+		$("body").append(SIMPLE_CONSOLE_JS.consoleObj);
+		console.log(SIMPLE_CONSOLE_JS.consoleObj);
+		SIMPLE_CONSOLE_JS.consoleObj = $(SIMPLE_CONSOLE_JS.consoleObj);
+	};
 	
-	SIMPLE_CONSOLE_JS.consoleObj.html("");
+	SIMPLE_CONSOLE_JS.consoleObj.SimpleConsole();
+};
+
+SIMPLE_CONSOLE_JS.DEACTIVATE = function(){
+	SIMPLE_CONSOLE_JS.consoleObj.remove();
+};
+
+(function( $ ) {
 	
-	// Stylesheet necessary for simpleConsole
-	var scCss = document.createElement("link");
-	scCss.rel = "stylesheet";
-	scCss.href = SIMPLE_CONSOLE_PATH + "../css/simpleConsole.css"; 
-	$(document.head).append(scCss);
+	$.fn.SimpleConsole = function(settings) {
 		
-	// Dependency of prettify plugin (stylesheet)
-	var prettifyCss = document.createElement("link");
-	prettifyCss.rel = "stylesheet";
-	prettifyCss.href = SIMPLE_CONSOLE_PATH + "../css/prettify.css";
-	$(document.head).append(prettifyCss);
+		// cssPath and jsPath are relative paths to simpleConsole.js file
+		var defaults = {
+			showBadge: true,
+			cssPath: "_css/",
+			jsPath: "_js/"
+		};
 		
-	// Dependency of prettify plugin (javascript)
-	var prettifyScript = document.createElement("script");
-	prettifyScript.setAttribute("type", "text/javascript");
-	prettifyScript.setAttribute("src", SIMPLE_CONSOLE_PATH + "../js/prettify.js");
-	document.head.appendChild(prettifyScript);
-	
-	var scInElement = document.createElement("input");
-	scInElement.id = "sc-cmdIn";
+		if(settings){$.extend(defaults,settings)}
 		
-	var scOutElement = document.createElement("pre");
-	scOutElement.id = "sc-cmdOut";
-	scOutElement.className = "prettyprint lang-js";
-	
-	var arrCommands = [];
-	var arrActual;
+		this.html("");
 		
-	SIMPLE_CONSOLE_JS.consoleObj.append(scInElement);
-	SIMPLE_CONSOLE_JS.consoleObj.append("<br />");
-	SIMPLE_CONSOLE_JS.consoleObj.append(scOutElement);
+		var scCss = document.createElement("link");
+		scCss.rel = "stylesheet";
+		scCss.href = SIMPLE_CONSOLE_JS.SIMPLE_CONSOLE_PATH + defaults.cssPath + "simpleConsole.css"; 
+		$(document.head).append(scCss);
 		
-	scInElement = $(scInElement);
-	scOutElement = $(scOutElement);
-	
-	// Needed because IE dont have an Object.constructor.name property
+		// Dependency of prettify plugin
+		var prettifyCss = document.createElement("link");
+		prettifyCss.rel = "stylesheet";
+		prettifyCss.href = SIMPLE_CONSOLE_JS.SIMPLE_CONSOLE_PATH + defaults.cssPath + "prettify.css";
+		$(document.head).append(prettifyCss);
+		var prettifyScript = document.createElement("script");
+		prettifyScript.setAttribute("type", "text/javascript");
+		prettifyScript.setAttribute("src", SIMPLE_CONSOLE_JS.SIMPLE_CONSOLE_PATH + defaults.jsPath + "prettify.js");
+		document.head.appendChild(prettifyScript);
+		// Dependency of prettify plugin
+		
+		var scInElement = document.createElement("input");
+		scInElement.id = "sc-cmdIn";
+		var scOutElement = document.createElement("pre");
+		scOutElement.id = "sc-cmdOut";
+		scOutElement.className = "prettyprint lang-js";
+		var arrCommands = [];
+		var arrActual;
+		
+		this.append(scInElement);
+		this.append("<br />");
+		this.append(scOutElement);
+		
+		if (defaults.showBadge) {
+			var scGihubBadge = document.createElement("div");
+			scGihubBadge.id = "sc-gihubBadge";
+			this.append(scGihubBadge);
+			scGihubBadge = $(scGihubBadge);
+			scGihubBadge.append('<a target="_blank" href="https://github.com/marciosalinodias/SimpleConsoleJS">SimpleConsoleJS</a>');
+			scGihubBadge.append('<a class="badge" target="_blank" href="https://github.com/marciosalinodias/SimpleConsoleJS">&nbsp;</a>');
+		};
+		
+		scInElement = $(scInElement);
+		scOutElement = $(scOutElement);
+		
+		// Needed because IE dont have Object.constructor.name property
 		function getClassName(element){
 		   var nameReplaceRegex = /function (.{1,})\(/;
 		   var className = (nameReplaceRegex).exec(element.constructor.toString());
 		   return (className && className.length > 1) ? className[1] : "";
-		};		
+		};
 		
 		function randomizeIdentifier(){
 			return Date.now().toString() + parseInt(Math.random() * 1000000).toString();
@@ -142,6 +162,11 @@ SIMPLE_CONSOLE_JS.ACTIVATE = function(){
 			catch(e){
 				scOutElement.append("&lt;&lt; " + e);
 			};
+			
+			//autoscroll
+			scOutElement.prop({
+				scrollTop: scOutElement.prop('scrollHeight')
+			});
 			
 			prettyPrint();
 		};
@@ -217,5 +242,5 @@ SIMPLE_CONSOLE_JS.ACTIVATE = function(){
 				};
 			};
 		});
-
-};
+	};
+})( jQuery );

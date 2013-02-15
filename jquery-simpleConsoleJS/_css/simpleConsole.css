@@ -1,0 +1,85 @@
+#sc-console{
+	width: 800px;
+	height: 500px;
+}
+
+#sc-cmdIn{
+	width: 100%;
+	margin: 10px 20px 0px 20px;
+	border: 1px solid #dddddd;
+	padding-left: 14px;
+	padding-right: 6px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 14px;
+	background: url("../_imgs/controlRight.png") left no-repeat;
+}
+
+#sc-cmdOut{
+	width: 100%;
+	margin: -1px 20px 0px 20px;
+	padding: 10px 10px;
+	border: 1px solid #dddddd;
+	height: 200px;
+	overflow: auto;
+	background-color: #FFFFFF;
+}
+
+#sc-gihubBadge{
+	width: 100%;
+	margin: -1px 20px 0px 20px;
+	padding: 5px 10px;
+	border: 1px solid #dddddd;
+	height: 18px;
+	overflow: auto;
+	background-color: #efefef;
+	color: #707070;
+	font-size: 14px;
+}
+
+#sc-gihubBadge a{
+	text-decoration: none;
+	color: #7F7F7F;
+}
+
+#sc-gihubBadge a.badge{
+	height: 18px;
+	width: 18px;
+	float: right;
+	background: url("../_imgs/github.png") no-repeat;
+}
+
+#sc-gihubBadge a:hover{
+	color: #555555;
+}
+
+#sc-cmdOut .sc-propertyTree{
+	cursor: pointer;
+	padding-left: 13px;
+}
+
+#sc-cmdOut .sc-expandTree{
+	background: url("../_imgs/right.png") left no-repeat;
+}
+
+#sc-cmdOut .sc-retractTree{
+	background: url("../_imgs/down.png") left no-repeat;
+}
+
+#sc-cmdOut ul{
+	list-style: none;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 30px !important;
+}
+
+#sc-cmdOut ul.detailTree{
+	display:none;
+}
+
+#sc-cmdOut hr{
+	width: 100%;
+	height: -1px;
+	margin: 10px 0;
+	border: 1px solid #eeeeee;
+}
