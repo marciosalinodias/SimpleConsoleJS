@@ -1,0 +1,14 @@
+.navbar{ display: none;}
+
+.content-outer{margin: 0 !important;}
+
+body {
+  min-width: 100% !important;
+  padding : 0 !important;
+}
+
+.content-outer, .content-fauxcolumn-outer, .region-inner {
+  min-width: 100% !important;
+  max-width: 100% !important;
+  _width: 100% !important;
+}
